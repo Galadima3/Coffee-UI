@@ -3,8 +3,14 @@
 import 'package:flutter/material.dart';
 
 class CoffeeTile extends StatelessWidget {
+  final String imagePath;
+  final String coffeeName;
+  final String coffeePrice;
   const CoffeeTile({
     Key? key,
+    required this.imagePath,
+    required this.coffeeName,
+    required this.coffeePrice,
   }) : super(key: key);
 
   @override
@@ -20,8 +26,11 @@ class CoffeeTile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
+              
               borderRadius: BorderRadius.circular(12),
-              child: Image.asset('images/coffee.jpg'),
+              child: Image.asset(
+                imagePath,
+              ),
             ),
             //coffee name
             Padding(
@@ -31,8 +40,8 @@ class CoffeeTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Coffee',
-                    style: TextStyle(fontSize: 20),
+                    coffeeName,
+                    style: TextStyle(fontSize: 17),
                   ),
                   SizedBox(
                     height: 4,
@@ -51,14 +60,14 @@ class CoffeeTile extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                Text('\$4.00'),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.orange,
-                    borderRadius: BorderRadius.circular(12)
-                  ),
-                  child: Icon(Icons.add))
-              ],),
+                  Text('\$$coffeePrice'),
+                  Container(
+                      decoration: BoxDecoration(
+                          color: Colors.orange,
+                          borderRadius: BorderRadius.circular(12)),
+                      child: Icon(Icons.add))
+                ],
+              ),
             )
           ],
         ),
